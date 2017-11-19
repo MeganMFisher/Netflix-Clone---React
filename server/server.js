@@ -50,7 +50,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user, done) => {
-    app.get('db').find_session_user([user[0].id]).then( user => {
+    app.get('db').find_session_user([user.id]).then( user => {
         return done(null, user[0]);
     })
 });
@@ -58,7 +58,7 @@ passport.deserializeUser((user, done) => {
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
     successRedirect: 'http://localhost:4001/#/home',
-    failureRedirect: 'http://localhost:3000/#/'
+    failureRedirect: 'http://localhost:4001/#/'
 }))
 
 app.get('/auth/me', (req, res, next) => {
