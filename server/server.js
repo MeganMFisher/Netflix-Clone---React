@@ -9,6 +9,25 @@ const express = require('express')
 
 const app = express();
 
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+massive(process.env.CONNECTIONSTRING).then( db => {
+    app.set('db', db);
+
+    app.get('db').init.seed_file().then(res => console.log(res))
+    .catch(err => console.log(err))
+})
+
+
+
 
 
 app.listen(process.env.PORT, () => {
