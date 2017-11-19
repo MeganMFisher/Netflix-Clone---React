@@ -6,6 +6,7 @@ const express = require('express')
 , Auth0Strategy = require('passport-auth0')
 , massive = require('massive')
 , session = require('express-session')
+, movieCtrl = require('./movieCtrl.js')
 
 const app = express();
 
@@ -77,7 +78,7 @@ app.get('/auth/logout', (req, res) => {
 
 
 
-
+app.get('/api/movies', movieCtrl.getAllMovies)
 
 
 

@@ -8,16 +8,16 @@ CREATE TABLE IF NOT EXISTS users (
     auth_id TEXT
 )
 
-CREATE TABLE IF NOT EXISTS mylist (
-    id SERIAL PRIMARY KEY,
-    title
-)
+-- CREATE TABLE IF NOT EXISTS mylist (
+--     id SERIAL PRIMARY KEY,
+--     title
+-- )
 
-CREATE TABLE IF NOT EXISTS watching (
-    id SERIAL PRIMARY KEY,
+-- CREATE TABLE IF NOT EXISTS watching (
+--     id SERIAL PRIMARY KEY,
 
-)
+-- )
 
-CREATE TABLE IF NOT EXISTS thumbs (
-    id SERIAL PRIMARY KEY,
-)
+-- CREATE TABLE IF NOT EXISTS thumbs (
+--     id SERIAL PRIMARY KEY,
+-- )
