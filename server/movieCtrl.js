@@ -1,3 +1,4 @@
+
 const request = require('request-promise'),
 app = require('./server')
 
@@ -6,12 +7,12 @@ module.exports = {
 
     getAllMovies: (req, res)  => {
         var info = {
-            uri: `https://api.themoviedb.org/3/movie/550?api_key=${apiKey}`,
+            uri: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.apiKey}&page=1`,
             json: true         
         }
 
-        request(info).then(res => {
-            console.log(res)
+        request(info).then(resp => {
+            res.send(resp)
         })
     }
 }

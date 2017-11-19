@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- CREATE TABLE IF NOT EXISTS watching (
 --     id SERIAL PRIMARY KEY,
+    -- finished boolean
 
 -- )
 
