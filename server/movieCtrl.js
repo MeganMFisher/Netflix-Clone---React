@@ -34,8 +34,8 @@ module.exports = {
     }, 
 
     getMoviesByGenre: (req, res) => {
-        request({uri: `https://api.themoviedb.org/3/genre/${req.query.genre_id}/movies?api_key=${process.env.apiKey}&language=en-US&include_adult=false&sort_by=created_at.asc`, json: true}).then(resp => {
-            res.send(resp)
+        request({uri: `https://api.themoviedb.org/3/genre/${req.query.genre_id}/movies?api_key=${process.env.apiKey}&language=en-US&sort_by=created_at.asc`, json: true}).then(resp => {
+            res.send(resp.results)
         })
     }
 
