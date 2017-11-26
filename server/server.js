@@ -79,6 +79,8 @@ app.get('/auth/logout', (req, res) => {
 
 
 app.get('/api/movies', movieCtrl.getAllMovies)
+app.get('/api/genre', movieCtrl.getGenres)
+app.get('api/moviesByGenre', movieCtrl.getMoviesByGenre)
 
 
 
