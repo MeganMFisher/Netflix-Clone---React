@@ -6,14 +6,27 @@ module.exports = {
 
 
     getAllMovies: (req, res)  => {
-        var info = {
-            uri: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apiKey}&language=en-US&page=1`,
-            json: true         
-        }
 
-        request(info).then(resp => {
-            res.send(resp)
-        })
+        var page = 1;
+ 
+        var moviesList = [];
+        (function movies() {
+            request({
+                uri: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apiKey}&language=en-US&page=${page}`,
+                json: true         
+            }).then(resp => {
+                if(page === 1 || page === 2){
+                moviesList.push(resp)
+                page++
+                movies()
+                } else {
+                    console.log(page)
+                    res.send(moviesList)
+                }
+            })
+        })()
+
+     
     }
 }
 
