@@ -7,7 +7,7 @@ module.exports = {
 
     getAllMovies: (req, res)  => {
         var info = {
-            uri: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.apiKey}&page=1`,
+            uri: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apiKey}&language=en-US&page=1`,
             json: true         
         }
 
@@ -17,6 +17,7 @@ module.exports = {
     }
 }
 
+//https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
 
 // https://api.themoviedb.org/3/movie/now_playing?api_key=###&page=1
 // https://api.themoviedb.org/3/movie/now_playing?api_key=###&page=2
