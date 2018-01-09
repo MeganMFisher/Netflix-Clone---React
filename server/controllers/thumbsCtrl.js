@@ -14,10 +14,15 @@ module.exports = {
     // update thumbed list for specific user
     updateThumb: (req, res) => {
         const db = req.app.get('db');
-        db.updateThumb([req.body.movieId, req.body.thumbs, req.params.id]).then(resp => {
-            res.send(resp)
-        })
-
+        if(req.body.thumbs) {
+            db.updateThumb([req.body.movieId, req.body.thumbs, req.params.id]).then(resp => {
+                res.send(resp)
+            })
+        } else {
+            db.deleteThumb([req.body.movieId, req.params.id]).then(resp => {
+                res.send(resp)
+            })
+        }
     },
 
     // Add to thumbed up or down list for specific user

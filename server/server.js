@@ -98,7 +98,7 @@ app.put('/api/user/watch/:id', watchingCtrl.finishedMovie)
 
 app.get('/api/user/thumbs/:id', thumbsCtrl.getThumbs)
 app.post('/api/user/thumbs/:id', thumbsCtrl.addThumb)
-app.put('/api/user/thumbs/:id', thumbsCtrl.updateThumb)
+app.put('/api/user/thumbs/:id', thumbsCtrl.updateThumb) //Update thumbs, if no thumbs on body it will delete movie from thumbs table
 
 
 app.listen(process.env.PORT, () => {
