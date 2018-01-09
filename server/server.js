@@ -6,8 +6,10 @@ const express = require('express')
 , Auth0Strategy = require('passport-auth0')
 , massive = require('massive')
 , session = require('express-session')
-, movieCtrl = require('./movieCtrl')
-, watchingCtrl = require('./watchingCtrl')
+, movieCtrl = require('./controllers/movieCtrl')
+, watchingCtrl = require('./controllers/watchingCtrl')
+, movieListCtrl = require('./controllers/movieListCtrl')
+, thumbsCtrl = require('./controllers/thumbsCtrl')
 
 const app = express();
 
@@ -16,7 +18,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-
+app.use(bodyParser.json())
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -90,6 +92,13 @@ app.post('/api/user/watch/:id', watchingCtrl.addToWatch) //Add to watch list wit
 app.put('/api/user/watch/:id', watchingCtrl.finishedMovie)
 
 
+// app.get('/api/user/list/:id', movieListCtrl.getMovieList)
+// app.post('/api/user/list/:id', movieListCtrl.addToMovieList)
+// app.delete('/api/user/list/:id', movieListCtrl.removeFromMovieList)
+
+app.get('/api/user/thumbs/:id', thumbsCtrl.getThumbs)
+app.post('/api/user/thumbs/:id', thumbsCtrl.addThumb)
+app.put('/api/user/thumbs/:id', thumbsCtrl.updateThumb)
 
 
 app.listen(process.env.PORT, () => {
