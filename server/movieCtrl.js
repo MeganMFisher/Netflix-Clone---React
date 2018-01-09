@@ -1,6 +1,6 @@
 
-const request = require('request-promise'),
-app = require('./server')
+const request = require('request-promise')
+// app = require('./server')
 
 module.exports = {
 

@@ -6,7 +6,8 @@ const express = require('express')
 , Auth0Strategy = require('passport-auth0')
 , massive = require('massive')
 , session = require('express-session')
-, movieCtrl = require('./movieCtrl.js')
+, movieCtrl = require('./movieCtrl')
+, watchingCtrl = require('./watchingCtrl')
 
 const app = express();
 
@@ -79,9 +80,14 @@ app.get('/auth/logout', (req, res) => {
 
 
 app.get('/api/movies', movieCtrl.getAllMovies)
-app.get('/api/movie/:id', movieCtrl.getMovie)
+app.get('/api/movie/:id', movieCtrl.getMovie) //Gets movie based off param with movie id. 
 app.get('/api/genre', movieCtrl.getGenres) 
 app.get('/api/moviesByGenre', movieCtrl.getMoviesByGenre) //Gets movies based off query with genre_id.
+
+
+app.get('/api/user/watch/:id', watchingCtrl.getToWatchList)
+app.post('/api/user/watch/:id', watchingCtrl.addToWatch) //Add to watch list with params of user id and query of movie id.
+app.put('/api/user/watch/:id', watchingCtrl.finishedMovie)
 
 
 
