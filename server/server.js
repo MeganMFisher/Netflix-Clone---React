@@ -79,6 +79,7 @@ app.get('/auth/logout', (req, res) => {
 
 
 app.get('/api/movies', movieCtrl.getAllMovies)
+app.get('/api/movie/:id', movieCtrl.getMovie)
 app.get('/api/genre', movieCtrl.getGenres) 
 app.get('/api/moviesByGenre', movieCtrl.getMoviesByGenre) //Gets movies based off query with genre_id.
 

@@ -20,11 +20,17 @@ module.exports = {
                 page++
                 movies()
                 } else {
-                    console.log(moviesList.length)
+                    console.log(moviesList)
                     res.send(moviesList)
                 }
             })
         })();   
+    },
+
+    getMovie: (req, res) => {
+        request({uri: `https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${process.env.apiKey}&language=en-US`, json: true}).then(resp => {
+            res.send(resp)
+        })
     },
 
     getGenres: (req, res) => {
@@ -38,6 +44,7 @@ module.exports = {
             res.send(resp.results)
         })
     }
+
 
 
 }

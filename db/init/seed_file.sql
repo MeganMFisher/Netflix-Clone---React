@@ -15,10 +15,13 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- CREATE TABLE IF NOT EXISTS watching (
 --     id SERIAL PRIMARY KEY,
-    -- finished boolean
+--     finished boolean
 
 -- )
 
 -- CREATE TABLE IF NOT EXISTS thumbs (
 --     id SERIAL PRIMARY KEY,
 -- )
+
+
+-- plan out server and project tonight 
